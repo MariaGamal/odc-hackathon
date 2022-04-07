@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}Courses{% endblock title %}
+
+{% block content %}
+
+<main role="main">
+
+    <div class="album py-5">
+        <div class="container">
+
+            <div class="row">
+
+                {% if courses %}
+                {% for course in courses %}
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <!-- <img class="card-img-top" src="https://source.unsplash.com/random/900x500/?computer"> -->
+                        <!-- <img class="card-img-top" src="http://fakeimg.pl/350x200/?text={{course.course_id}}"> -->
+                        <div style="height: 15vh; background-color: #ff7900; border-radius: .2em .2em 0 0;"></div>
+                        <div class="card-body">
+                            <!-- a link to a single course -->
+                            <a href="{% url 'course' course.course_id %}" ><h5 class="card-title">{{course.course_name}}</h5></a>
+                            <p class="card-text">{{course.course_description|truncatechars:55}}</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a class="btn btn-primary text-white" href="{% url 'course' course.course_id %}">View Course</a>
+                                </div>
+                                <small class="text-muted">
+                                    Level: <span class="badge badge-secondary">{{course.course_level}}</span>
+                                    <br>
+                                    Categories:
+                                    {% for course in course.category.all %}
+                                    <span class="badge badge-primary">{{course}}</span>
+                                    {% endfor %}
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                {% else %}
+                <div class="col-md-12">
+                    <div class="alert alert-danger" style="text-align: center;">
+                        <strong>No Courses Found!</strong>
+                    </div>
+                </div>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+
+</main>
+
+{% endblock content %}
