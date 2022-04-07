@@ -7,7 +7,6 @@ http://127.0.0.1:8000/course/1/
 
 http://127.0.0.1:8000/admin/
 - Log in as admin. 
-- 
 Username -> admin Password -> admin
 
 Username -> subadmin Password ->@dmin111
