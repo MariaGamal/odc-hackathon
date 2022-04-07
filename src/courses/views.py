@@ -61,18 +61,18 @@ def enroll(request, course_id):
             valid_exams.append(exams[exam])
     # print(valid_exams)
     random_exam = random.choice(valid_exams)
-    print()
-    print(random_exam)
-    print()
-    student.exams.add(str(random_exam.exam_id))
+    # print()
+    # print(random_exam)
+    # print()
+    # student.exams.add(str(random_exam.exam_id))
 
-    # send_mail(
-    #     'Enrollment Confirmation',
-    #     'You have been enrolled in the course: ' + course.course_name  + ' Here is your exam code',
-    #     request.user.email,
-    #     [student.student_email],
-    #     fail_silently=False,
-    # )
+    send_mail(
+        'Enrollment Confirmation',
+        'You have been enrolled in the course: ' + course.course_name  + ' Here is your exam code',
+        request.user.email,
+        [student.student_email],
+        fail_silently=False,
+    )
     return redirect('code', course_id=course_id)
 
 # def enroll(request):
