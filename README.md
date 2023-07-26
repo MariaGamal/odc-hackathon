@@ -1,3 +1,3 @@
 # odc-hackathon
 
-A learning management system for Orange Digital Center Backened Hackathon
+A learning management system for Orange Digital Center Backend Hackathon
